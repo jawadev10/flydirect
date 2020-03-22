@@ -1,0 +1,174 @@
+<% if(!user) { %>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+		<title>inscription</title>
+		
+		<script src="http://code.jquery.com/jquery-2.0.3.min.js" ></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />	
+        
+        <!--CSS principal-->
+        <link href="/styles.css" rel="stylesheet" type="text/css"/>
+        
+        <!--CSS pour les fonts-->
+        <link href="/ionicons.min.css" rel="stylesheet"/>
+        <link href="/font-awesome.min.css" rel="stylesheet"/>
+        
+        <!--CSS Bootstrap-->
+        <link href="/bootstrap.min.css" rel="stylesheet"/>
+
+        <!--CSS pour les animations-->
+        <link href="/animate.min.css" rel="stylesheet"/>
+
+        <!--CSS Fonts Google-->
+		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,300' rel='stylesheet' type='text/css'>
+
+    </head>
+	
+<body>
+		<h1>Fly Direct</h1>
+
+		<div class="container">
+				<div class="row">		  
+				   <div class="col-md-12 col-sm-12">					  
+						 <div class="iso-section wow fadeInUp" data-wow-delay="2.6s">		  
+								<ul class="filter-wrapper clearfix">
+										<center>
+											<li><a href="index" class="">Accueil</a></li>  <!--/ /index -->
+                                            <li><a href="vols" class="" >Les vols</a></li>
+											<% if(admin=="1") { %> <li><a href="addplane" class="">Ajouter vols</a></li> <% } %> 
+											<% if(admin=="1") { %> <li><a href="gestionmembre" class="">Gestion membres</a></li> <% } %>
+											<% if (!user) {%> <li><a href="inscription" class="">S'inscrire</a></li> <% } %> 
+											<% if(!user) {%> <li><a href="connexion" class="">Se connecter</a></li> <% } %>
+											<% if(user) {%> <li><a href="modif" class="">Mon compte</a></li> <% } %>
+                                            <% if (user) {%><li><a href="deconnexion" class="">Se deconnecter</a></li><% } %> 
+										</center>
+								</ul>	
+							</div>
+		 				</div>
+				 </div>
+			</div>
+
+
+
+
+		<div id="inscription">
+		<center>
+			<legend><h3>Inscription</h3></legend>
+		</center>		
+			<div id="user"></div>
+		</div>
+
+				<div id="user-container">
+
+					<form method="POST" action="inscription" onsubmit="return validation()">
+						<center>
+						<fieldset>
+						<table>	
+
+							<tr>
+								<td>						
+										<label><h4>Nom : </h4></label>
+										<td align="right">
+										<input type="text" name="name" placeholder="Nom" required/><br/>
+										<p></p>
+										</td>	
+								</td>
+							</tr>
+							
+							<tr>	
+								<td>	
+										<label><h4>Prénom : </h4></label>
+										<td align="right">
+										<input type="text" name="surname" placeholder="Prénom" required/><br/>
+										<p></p>
+										</td>
+								</td>
+							</tr>
+							<tr>	
+								<td>
+										<label><h4>Email : </h4></label>
+										<td align="right">
+										<input type="email" name="email" placeholder="Email" required/><br/>
+										<p></p>
+										</td>
+								</td>
+							</tr>
+							<tr>	
+								<td>
+										<label><h4>Mot de passe : </h4></label>
+										<td align="right">
+										<input type="password" name="password" placeholder="Mot de passe" required/><br/>
+										<p></p>
+										</td>
+								</td>
+							</tr>
+
+							<tr>	
+								<td align="right"><br/>
+								<button type="submit" name="submit"><h5>Valider</h5></button>
+								<p></p>
+								</td>
+							</tr>
+
+						</table>
+
+						</fieldset>
+
+						</center>
+
+						<script type="text/javascript">
+					
+							$(function() {
+							   toastr["info"]("Vous serez directement redirigé vers la page de connexion")
+							   toastr.options = {
+													 "closeButton": false,
+												   "debug": false,
+												   "newestOnTop": false,
+												   "progressBar": false,
+												   "positionClass": "toast-top-center",
+												   "preventDuplicates": false,
+												   "onclick": null,
+												   "showDuration": "100",
+												   "hideDuration": "400",
+												   "timeOut": "2000",
+												   "extendedTimeOut": "1000",
+												   "showEasing": "swing",
+												   "hideEasing": "linear",
+												   "showMethod": "fadeIn",
+												   "hideMethod": "fadeOut"
+												   }
+									   });
+   
+						   </script>
+
+
+						<script type="text/javascript">
+						
+							function validation(){
+							alert('Votre compte a été créé !');
+							};
+	
+						</script>
+
+
+						</form>
+	
+				</div>
+
+
+
+</body>
+    
+</html>
+
+<% } %>
+
+<% if(user) { %> 
+
+	<meta http-equiv="refresh" content="0.1; URL=index">
+	
+<% } %>

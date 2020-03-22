@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Fly Direct</title>
+        
+        <!--CSS principal-->
+        <link href="/styles.css" rel="stylesheet" type="text/css"/>
+        
+        <!--CSS pour les fonts-->
+        <link href="/ionicons.min.css" rel="stylesheet"/>
+        <link href="/font-awesome.min.css" rel="stylesheet"/>
+        
+        <!--CSS Bootstrap-->
+        <link href="/bootstrap.min.css" rel="stylesheet"/>
+
+        <!--CSS pour les animations-->
+        <link href="/animate.min.css" rel="stylesheet"/>
+        <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+        <!--CSS Fonts Google-->
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,300' rel='stylesheet' type='text/css'>
+    </head>
+
+    <body>
+        <h1>Fly Direct</h1></br>
+
+        <% if(user) { %> <h4>  Hello ! How are you <%=  user.surname %> ? </h4>  <% } %>
+        
+
+        <div class="container">
+            <div class="row">
+      
+               <div class="col-md-12 col-sm-12">
+                  
+                     <!-- iso section -->
+                     <div class="iso-section wow fadeInUp" data-wow-delay="2.6s">
+      
+                        <ul class="filter-wrapper clearfix">
+                            <center>
+                                <li><a href="index" class="">Accueil</a></li>  <!--/ /index -->
+                                <li><a href="vols" class="" >Les vols</a></li>
+                                <% if(admin=="1") { %><li><a href="addplane" class="">Ajouter vols</a></li> <% } %>
+                                <% if(admin=="1") { %> <li><a href="gestionmembre" class="">Gestion membres</a></li> <% } %> 
+                                <% if(!user) {%> <li><a href="inscription" class="">S'inscrire</a></li> <% } %> 
+                                <% if(!user) {%> <li><a href="connexion" class="">Se connecter</a></li> <% } %>
+                                <% if(user) {%> <li><a href="modif" class="">Mon compte</a></li> <% } %>
+                                <% if(user) {%><li><a href="deconnexion" class="">Se deconnecter</a></li><% } %> 
+                            </center>   
+                        </ul>
+        </div>
+
+    <center>
+        <h4>Bienvenue sur Fly Direct !</h4>
+    </center>
+        <section id="header" class="header-one">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8">
+                <div class="header-thumb">
+                      <h1 class="wow fadeIn" data-wow-delay="1.6s">Fly Direct</h1>
+                     
+                     <h3 class="wow fadeInUp" data-wow-delay="1.9s"></h3>
+                      
+                      
+                </div>
+               
+                    </div>
+        
+                </div>
+               
+            </div>		
+        </section>
+        <script>
+            $( document ).click(function() {
+              $( "#header" ).effect( "shake" );
+            });
+     </script>
+     
+    </body>
+</html>

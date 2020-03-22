@@ -1,0 +1,92 @@
+<% if(admin=="1"){ %>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Gestionmembre</title>
+        <style type="text/css">
+        
+        </style>
+        
+        <!--CSS principal-->
+        <link href="/styles.css" rel="stylesheet" type="text/css"/>
+        
+        <!--CSS pour les fonts-->
+        <link href="/ionicons.min.css" rel="stylesheet"/>
+        <link href="/font-awesome.min.css" rel="stylesheet"/>
+        
+        <!--CSS Bootstrap-->
+        <link href="/bootstrap.min.css" rel="stylesheet"/>
+
+        <!--CSS pour les animations-->
+        <link href="/animate.min.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+
+        <!--CSS Fonts Google-->
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,300' rel='stylesheet' type='text/css'>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    </head>
+
+    <body>
+        
+        <h1>Fly Direct</h1>
+                
+        <div class="container">
+            <div class="row">    
+               <div class="col-md-12 col-sm-12">                
+                     <!-- iso section -->
+                     <div class="iso-section wow fadeInUp" data-wow-delay="2.6s">     
+                        <ul class="filter-wrapper clearfix">
+                                <center>
+                                    <li><a href="index" class="">Accueil</a></li>  <!--/ /index -->
+                                    <li><a href="vols" class="" >Les vols</a></li>
+                                    <% if(admin=="1") { %><li><a href="addplane" class="">Ajouter vols</a></li> <% } %>
+                                    <% if(admin=="1") { %> <li><a href="gestionmembre" class="">Gestion membres</a></li> <% } %>
+                                    <% if(!user) {%> <li><a href="inscription" class="">S'inscrire</a></li> <% } %> 
+                                    <% if(!user) {%> <li><a href="connexion" class="">Se connecter</a></li> <% } %>
+                                    <% if(user) {%> <li><a href="modif" class="">Mon compte</a></li> <% } %>
+                                    <% if(user) {%><li><a href="deconnexion" class="">Se deconnecter</a></li><% } %> 
+                                </center>   
+                        </ul>
+                    </div>
+                </div>
+            </div>
+         </div>
+
+
+         <center><legend><h2>Gestion des utilisateurs</h2></legend></center>
+         
+         <div class="container">
+             
+         <table border="4" width="100%" bordercolor="#808080" frame="hsides" rules="rows" >
+            <tr><th>Nom</th><th>Prénom</th><th>Email</th><th>Action</th></tr>                    
+            <% util.forEach(function(utilisateur){ %>
+               <tr> <td><%= utilisateur.name %></td><td><%= utilisateur.surname %></td><td><%= utilisateur.email %></td><td><a href="gestionmembre/<%= utilisateur._id %>"> supprimer </a></td></tr>   
+            <% }) %>
+           
+        </table> 
+        
+        </div>
+
+
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> 
+        <script type="text/javascript" src="effect.js"></script>
+
+     </body>
+        
+
+    </html>
+
+    <% } %>
+
+    <% if(admin==null) { %> 
+
+        <meta http-equiv="refresh" content="0.1; URL=index">
+        
+    <% } %>
+
+
+
